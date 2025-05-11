@@ -6,10 +6,21 @@ import os
 
 class MyVanna(ChromaDB_VectorStore, GoogleGeminiChat):
     def __init__(self, config=None):
+        if config is None:
+            config = {}
+        
         ChromaDB_VectorStore.__init__(self, config=config)
-        GoogleGeminiChat.__init__(self, config={'api_key': "AIzaSyD9g5yT45LLaHgKR5ixc8Z1rpQPborvMcw", 'model_name': "gemini-2.0-flash"})
-        self.print_prompt = False
-        self.print_sql = False
+        
+        api_key = config.get('api_key')
+        model_name = config.get('model_name')
+        
+        GoogleGeminiChat.__init__(self, config={
+            'api_key': api_key, 
+            'model_name': model_name
+        })
+        
+        self.print_prompt = config.get('print_prompt', False)
+        self.print_sql = config.get('print_sql', False)
 
     def connect_to_postgres(self, host, dbname, user, password, port):
         self.db_url = f'postgresql://{user}:{password}@{host}:{port}/{dbname}'

@@ -2,3 +2,7 @@ FastAPI
 uvicorn
 psycopg2-binary
 python-dotenv
+vanna
+chromadb
+google-generativeai
+google-cloud-aiplatform

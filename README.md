@@ -1,59 +1,74 @@
-# FastAPI SQL Question API
+# API SQL de Perguntas com FastAPI
 
-This project is a FastAPI application that allows users to ask questions related to SQL queries. The application connects to a PostgreSQL database and utilizes a custom class to generate and execute SQL queries based on user input.
+Este projeto é uma aplicação FastAPI que permite aos usuários fazer perguntas relacionadas a consultas SQL. A aplicação se conecta a um banco de dados PostgreSQL e utiliza uma classe personalizada para gerar e executar consultas SQL com base na entrada do usuário.
 
-## Project Structure
+## Estrutura do Projeto
 
 ```
 fastapi-sql-question-api
 ├── src
-│   ├── app.py                # Entry point of the FastAPI application
+│   ├── app.py                # Ponto de entrada da aplicação FastAPI
 │   ├── database
-│   │   ├── __init__.py       # Empty initializer for the database module
-│   │   └── vanna_client.py    # Logic to connect to PostgreSQL and run SQL queries
+│   │   ├── __init__.py       # Inicializador vazio para o módulo database
+│   │   └── vanna_client.py   # Lógica para conexão com PostgreSQL e execução de consultas SQL
 │   ├── api
-│   │   ├── __init__.py       # Empty initializer for the api module
-│   │   └── routes.py         # API routes for handling questions and SQL execution
+│   │   ├── __init__.py       # Inicializador vazio para o módulo api
+│   │   └── routes.py         # Rotas da API para lidar com perguntas e execução SQL
 │   ├── models
-│   │   ├── __init__.py       # Empty initializer for the models module
-│   │   └── query.py          # Data models or schemas for API requests and responses
-│   └── config.py             # Configuration settings for the application
-├── requirements.txt           # List of dependencies for the project
-├── .env                       # Environment variables for configuration
-├── .env.example               # Example of the environment variables needed
-└── README.md                  # Documentation for the project
+│   │   ├── __init__.py       # Inicializador vazio para o módulo models
+│   │   └── query.py          # Modelos de dados ou schemas para requisições e respostas da API
+│   └── config.py             # Configurações para a aplicação
+├── requirements.txt          # Lista de dependências do projeto
+├── .env                      # Variáveis de ambiente para configuração
+├── .env.example              # Exemplo das variáveis de ambiente necessárias
+└── README.md                 # Documentação do projeto
 ```
 
-## Setup Instructions
+## Instruções de Configuração
 
-1. **Clone the repository:**
+1. **Clone o repositório:**
    ```
    git clone <repository-url>
    cd fastapi-sql-question-api
    ```
 
-2. **Create a virtual environment:**
+2. **Crie um ambiente virtual:**
    ```
    python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   
+   # No Windows:
+   venv\Scripts\activate
+   
+   # No Linux/MacOS:
+   source venv/bin/activate
    ```
 
-3. **Install dependencies:**
+3. **Instale as dependências:**
    ```
    pip install -r requirements.txt
    ```
 
-4. **Configure environment variables:**
-   - Copy `.env.example` to `.env` and fill in the required database credentials.
+4. **Configure as variáveis de ambiente:**
+   - Copie o arquivo `.env.example` para `.env` e preencha as credenciais do banco de dados necessárias.
+   ```
+   copy .env.example .env  # No Windows
+   # ou
+   cp .env.example .env    # No Linux/MacOS
+   ```
 
-5. **Run the application:**
+5. **Execute a aplicação:**
    ```
    uvicorn src.app:app --reload
    ```
 
-## Usage
+6. **Para desativar o ambiente virtual quando terminar:**
+   ```
+   deactivate
+   ```
 
-Once the application is running, you can send a POST request to the `/ask` endpoint with a JSON body containing your question. For example:
+## Uso
+
+Uma vez que a aplicação esteja em execução, você pode enviar uma requisição POST para o endpoint `/ask` com um corpo JSON contendo sua pergunta. Por exemplo:
 
 ```json
 {
@@ -61,8 +76,8 @@ Once the application is running, you can send a POST request to the `/ask` endpo
 }
 ```
 
-The application will return the result of the SQL query generated based on your question.
+A aplicação retornará o resultado da consulta SQL gerada com base na sua pergunta.
 
-## License
+## Licença
 
-This project is licensed under the MIT License.
+Este projeto está licenciado sob a Licença MIT.
