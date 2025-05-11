@@ -1,0 +1,66 @@
+gitignore
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+new_venv/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment variables
+.env
+
+# Database
+*.sqlite3
+chroma.sqlite3
+*.db
+
+# Logs
+logs/
+*.log
+
+# Cache directories
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# FastAPI specific
+.fastapi
+
+# Chroma DB files
+**/data_level0.bin
+**/header.bin
+**/length.bin
+**/link_lists.bin
+**/*/
